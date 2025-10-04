@@ -7,8 +7,16 @@ import {
 } from './ui/navigation-menu';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from './ThemeToggle';
+import { useNavigation } from '../App';
 
 export default function Navbar() {
+  const { currentPage, navigate } = useNavigation();
+
+  const handleNavigation = (e, page) => {
+    e.preventDefault();
+    navigate(page);
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center p-6">
       <div className="flex items-center gap-4">
@@ -17,7 +25,12 @@ export default function Navbar() {
             <NavigationMenuItem>
               <NavigationMenuLink 
                 href="/" 
-                className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700")}
+                onClick={(e) => handleNavigation(e, 'home')}
+                className={cn(
+                  navigationMenuTriggerStyle(), 
+                  "bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer",
+                  currentPage === 'home' && "bg-gray-100 dark:bg-gray-700"
+                )}
               >
                 Home
               </NavigationMenuLink>
@@ -25,7 +38,12 @@ export default function Navbar() {
             <NavigationMenuItem>
               <NavigationMenuLink 
                 href="/about" 
-                className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700")}
+                onClick={(e) => handleNavigation(e, 'about')}
+                className={cn(
+                  navigationMenuTriggerStyle(), 
+                  "bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer",
+                  currentPage === 'about' && "bg-gray-100 dark:bg-gray-700"
+                )}
               >
                 About Us
               </NavigationMenuLink>
@@ -33,7 +51,12 @@ export default function Navbar() {
             <NavigationMenuItem>
               <NavigationMenuLink 
                 href="/portfolio" 
-                className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700")}
+                onClick={(e) => handleNavigation(e, 'portfolio')}
+                className={cn(
+                  navigationMenuTriggerStyle(), 
+                  "bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer",
+                  currentPage === 'portfolio' && "bg-gray-100 dark:bg-gray-700"
+                )}
               >
                 Portfolio
               </NavigationMenuLink>
@@ -41,7 +64,12 @@ export default function Navbar() {
             <NavigationMenuItem>
               <NavigationMenuLink 
                 href="/contacts" 
-                className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700")}
+                onClick={(e) => handleNavigation(e, 'contacts')}
+                className={cn(
+                  navigationMenuTriggerStyle(), 
+                  "bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer",
+                  currentPage === 'contacts' && "bg-gray-100 dark:bg-gray-700"
+                )}
               >
                 Contacts
               </NavigationMenuLink>
