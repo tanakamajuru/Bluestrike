@@ -1,12 +1,14 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Users, Target, Award, TrendingUp } from 'lucide-react';
+import AnimatedBackground from '@/components/AnimatedBackground';
 
 export default function About() {
   return (
-    <div className="h-screen overflow-y-auto snap-y snap-mandatory">
-      {/* Hero Section */}
-      <section className="h-screen snap-start flex items-center justify-center px-6 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <AnimatedBackground variant="morphing">
+      <div className="h-screen overflow-y-auto snap-y snap-mandatory">
+        {/* Hero Section */}
+        <section className="h-screen snap-start flex items-center justify-center px-6 bg-gradient-to-b from-blue-50/80 to-white/80 dark:from-gray-900/80 dark:to-gray-800/80 backdrop-blur-sm">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
@@ -49,7 +51,7 @@ export default function About() {
       </section>
 
       {/* Company Values Section */}
-      <section className="h-screen snap-start flex items-center px-6 bg-white dark:bg-gray-800">
+      <section className="h-screen snap-start flex items-center px-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -101,7 +103,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="h-screen snap-start flex items-center px-6 bg-gradient-to-b from-blue-600 to-blue-700 dark:from-blue-900 dark:to-blue-950 text-white">
+      <section className="h-screen snap-start flex items-center px-6 bg-gradient-to-b from-blue-600/90 to-blue-700/90 dark:from-blue-900/90 dark:to-blue-950/90 text-white backdrop-blur-sm">
         <div className="container mx-auto max-w-6xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Our Expertise
@@ -133,6 +135,7 @@ export default function About() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </AnimatedBackground>
   );
 }

@@ -4,16 +4,36 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import AnimatedBackground from '@/components/AnimatedBackground';
 
 export default function Contacts() {
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
-    alert('Thank you for your message! We will get back to you soon.');
+    
+    // Get form data
+    const formData = new FormData(e.target);
+    const firstName = formData.get('firstName');
+    const lastName = formData.get('lastName');
+    const email = formData.get('email');
+    const phone = formData.get('phone');
+    const subject = formData.get('subject');
+    const message = formData.get('message');
+    
+    // Compile message for WhatsApp
+    const whatsappMessage = `*New Contact Form Submission*%0A%0A` +
+      `*Name:* ${firstName} ${lastName}%0A` +
+      `*Email:* ${email}%0A` +
+      `*Phone:* ${phone || 'Not provided'}%0A` +
+      `*Subject:* ${subject}%0A%0A` +
+      `*Message:*%0A${message}`;
+    
+    // Redirect to WhatsApp
+    window.open(`https://wa.link/3looae?text=${whatsappMessage}`, '_blank');
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 pt-24 pb-12 px-6">
+    <AnimatedBackground variant="morphing">
+      <div className="min-h-screen bg-gradient-to-b from-blue-50/80 to-white/80 dark:from-gray-900/80 dark:to-gray-800/80 backdrop-blur-sm pt-24 pb-12 px-6">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12">
@@ -42,8 +62,8 @@ export default function Contacts() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Phone</h3>
-                    <p className="text-gray-600 dark:text-gray-300">+254 700 000 000</p>
-                    <p className="text-gray-600 dark:text-gray-300">+254 711 111 111</p>
+                    <p className="text-gray-600 dark:text-gray-300">+263 24 2701234</p>
+                    <p className="text-gray-600 dark:text-gray-300">+263 77 123 4567</p>
                   </div>
                 </div>
 
@@ -53,8 +73,8 @@ export default function Contacts() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Email</h3>
-                    <p className="text-gray-600 dark:text-gray-300">info@bluestrike.co.ke</p>
-                    <p className="text-gray-600 dark:text-gray-300">sales@bluestrike.co.ke</p>
+                    <p className="text-gray-600 dark:text-gray-300">info@bluestrike.co.zw</p>
+                    <p className="text-gray-600 dark:text-gray-300">sales@bluestrike.co.zw</p>
                   </div>
                 </div>
 
@@ -66,8 +86,9 @@ export default function Contacts() {
                     <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Office Location</h3>
                     <p className="text-gray-600 dark:text-gray-300">
                       Bluestrike Investments Ltd<br />
-                      Nairobi, Kenya<br />
-                      P.O. Box 12345-00100
+                      123 Samora Machel Avenue<br />
+                      Harare, Zimbabwe<br />
+                      P.O. Box 4567, Harare
                     </p>
                   </div>
                 </div>
@@ -95,7 +116,7 @@ export default function Contacts() {
                 <p className="text-blue-100 dark:text-blue-200 mb-3">
                   For urgent maintenance or technical support, call our emergency hotline:
                 </p>
-                <p className="text-2xl font-bold">+254 722 222 222</p>
+                <p className="text-2xl font-bold">+263 71 234 5678</p>
               </CardContent>
             </Card>
           </div>
@@ -115,6 +136,7 @@ export default function Contacts() {
                     <Label htmlFor="firstName" className="dark:text-gray-200">First Name *</Label>
                     <Input 
                       id="firstName" 
+                      name="firstName"
                       placeholder="John" 
                       required 
                       className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
@@ -124,6 +146,7 @@ export default function Contacts() {
                     <Label htmlFor="lastName" className="dark:text-gray-200">Last Name *</Label>
                     <Input 
                       id="lastName" 
+                      name="lastName"
                       placeholder="Doe" 
                       required 
                       className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
@@ -135,6 +158,7 @@ export default function Contacts() {
                   <Label htmlFor="email" className="dark:text-gray-200">Email *</Label>
                   <Input 
                     id="email" 
+                    name="email"
                     type="email" 
                     placeholder="john.doe@example.com" 
                     required 
@@ -146,8 +170,9 @@ export default function Contacts() {
                   <Label htmlFor="phone" className="dark:text-gray-200">Phone Number</Label>
                   <Input 
                     id="phone" 
+                    name="phone"
                     type="tel" 
-                    placeholder="+254 700 000 000" 
+                    placeholder="+263 77 123 4567" 
                     className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
                   />
                 </div>
@@ -156,6 +181,7 @@ export default function Contacts() {
                   <Label htmlFor="subject" className="dark:text-gray-200">Subject *</Label>
                   <Input 
                     id="subject" 
+                    name="subject"
                     placeholder="How can we help you?" 
                     required 
                     className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
@@ -166,6 +192,7 @@ export default function Contacts() {
                   <Label htmlFor="message" className="dark:text-gray-200">Message *</Label>
                   <Textarea 
                     id="message" 
+                    name="message"
                     placeholder="Tell us more about your project or inquiry..." 
                     rows={5}
                     required 
@@ -176,7 +203,7 @@ export default function Contacts() {
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-500 dark:hover:bg-blue-600 dark:text-white"
                 >
                   <Send className="mr-2 h-5 w-5" />
                   Send Message
@@ -185,7 +212,35 @@ export default function Contacts() {
             </CardContent>
           </Card>
         </div>
+
+        {/* Google Maps Section */}
+        <div className="mt-12">
+          <Card className="bg-white dark:bg-gray-800 overflow-hidden">
+            <CardHeader>
+              <CardTitle className="text-2xl dark:text-white">Find Us on the Map</CardTitle>
+              <CardDescription className="dark:text-gray-400">
+                Visit our office at 123 Samora Machel Avenue, Harare
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="p-0">
+              <div className="w-full h-[450px]">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3798.2076842857844!2d31.047619!3d-17.829166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1931a4f0b8b0b0b1%3A0x1234567890abcdef!2sSamora%20Machel%20Avenue%2C%20Harare%2C%20Zimbabwe!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
+                  width="100%"
+                  height="450"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Bluestrike Office Location"
+                  className="dark:grayscale dark:invert-[0.1]"
+                ></iframe>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
-    </div>
+      </div>
+    </AnimatedBackground>
   );
 }

@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Sun, Zap, Box, Building2, Factory, Home } from 'lucide-react';
+import AnimatedBackground from '@/components/AnimatedBackground';
 
 export default function Portfolio() {
   const projects = [
@@ -70,7 +71,8 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 pt-24 pb-12 px-6">
+    <AnimatedBackground variant="morphing">
+      <div className="min-h-screen bg-gradient-to-b from-blue-50/80 to-white/80 dark:from-gray-900/80 dark:to-gray-800/80 backdrop-blur-sm pt-24 pb-12 px-6">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12">
@@ -78,7 +80,7 @@ export default function Portfolio() {
             Our <span className="text-blue-600 dark:text-blue-400">Portfolio</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Explore our successful projects across solar energy, power generation, and infrastructure solutions
+            Explore our successful projects across our service offerings.
           </p>
         </div>
 
@@ -155,7 +157,7 @@ export default function Portfolio() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-16 text-center bg-blue-600 dark:bg-blue-900 rounded-2xl p-12">
+        <div className="mt-16 text-center bg-blue-600/90 dark:bg-blue-900/90 backdrop-blur-sm rounded-2xl p-12">
           <h2 className="text-3xl font-bold text-white mb-4">
             Ready to Start Your Project?
           </h2>
@@ -164,6 +166,7 @@ export default function Portfolio() {
           </p>
         </div>
       </div>
-    </div>
+      </div>
+    </AnimatedBackground>
   );
 }

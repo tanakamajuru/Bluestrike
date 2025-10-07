@@ -2,8 +2,11 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Sun, Zap, Box, Wrench, ArrowRight, CheckCircle } from 'lucide-react';
 import BackgroundSlider from '@/components/BackgroundSlider';
+import { useNavigation } from '../App';
+import AnimatedBackground from '@/components/AnimatedBackground';
 
 export default function Home() {
+  const { navigate } = useNavigation();
   // Add your images here - replace with actual image paths from your src folder
   const serviceImages = [
     'src/assets/solar.png',
@@ -12,12 +15,13 @@ export default function Home() {
     'src/assets/accessories.jpg',
   ];
   return (
-    <div className="h-screen overflow-y-auto snap-y snap-mandatory">
-      {/* Hero Section */}
-      <section className="h-screen snap-start flex items-center justify-center px-6 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <AnimatedBackground variant="morphing">
+      <div className="h-screen overflow-y-auto snap-y snap-mandatory">
+        {/* Hero Section */}
+        <section className="h-screen snap-start flex items-center justify-center px-6 bg-gradient-to-b from-blue-50/80 to-white/80 dark:from-gray-900/80 dark:to-gray-800/80">
         <div className="container mx-auto max-w-6xl text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400 mb-4">
-            BlueStrike Investments
+            BLUESTRIKE ENGINEERING
           </h1>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Powering Your Future with
@@ -27,7 +31,7 @@ export default function Home() {
             Excels in the sale, installation, and maintenance of solar products, 
             generators, fabricated containers, and essential accessories.
           </p>
-          <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-gray-700">
+          <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-gray-800 dark:bg-gray-800/50">
             Learn More
           </Button>
         </div>
@@ -165,7 +169,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="h-screen snap-start flex items-center px-6 bg-blue-600 dark:bg-blue-900 text-white">
+      <section className="h-screen snap-start flex items-center px-6 bg-blue-600/90 dark:bg-blue-900/90 text-white backdrop-blur-sm">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-3">Why Choose Bluestrike Investments?</h2>
@@ -209,7 +213,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="h-screen snap-start flex items-center justify-center px-6 bg-gradient-to-b from-white to-blue-50 dark:from-gray-800 dark:to-gray-900">
+      <section className="h-screen snap-start flex items-center justify-center px-6 bg-gradient-to-b from-white/80 to-blue-50/80 dark:from-gray-800/80 dark:to-gray-900/80 backdrop-blur-sm">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Ready to Get Started?
@@ -217,11 +221,16 @@ export default function Home() {
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">
             Contact us today for a free consultation and discover how we can power your future
           </p>
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600">
+          <Button 
+            size="lg" 
+            onClick={() => navigate('contacts')}
+            className="bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-500 dark:hover:bg-blue-600 dark:text-white"
+          >
             Contact Us Today <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
       </section>
-    </div>
+      </div>
+    </AnimatedBackground>
   );
 }
