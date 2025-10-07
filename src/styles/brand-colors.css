@@ -1,0 +1,170 @@
+/* BlueStrike Brand Colors */
+:root {
+  /* Primary Brand Blues */
+  --brand-navy: #2E4057;
+  --brand-royal: #4A90E2;
+  --brand-sky: #64B5F6;
+  --brand-cyan: #90CAF9;
+  
+  /* Accent Colors */
+  --brand-vibrant: #1E88E5;
+  --brand-deep: #0D47A1;
+  
+  /* Light Theme Colors */
+  --light-bg-primary: #FFFFFF;
+  --light-bg-secondary: #F5F7FA;
+  --light-bg-tertiary: #E8EEF4;
+  
+  --light-text-primary: #1A1F2E;
+  --light-text-secondary: #4A5568;
+  --light-text-tertiary: #7A8699;
+  
+  --light-border-subtle: #D1DDE8;
+  --light-border-focus: #4A90E2;
+  
+  --light-shadow-subtle: rgba(46, 64, 87, 0.08);
+  --light-shadow-elevated: rgba(46, 64, 87, 0.15);
+  
+  /* Dark Theme Colors */
+  --dark-bg-primary: #0F1419;
+  --dark-bg-secondary: #1A1F2E;
+  --dark-bg-tertiary: #2E4057;
+  
+  --dark-text-primary: #F5F7FA;
+  --dark-text-secondary: #C7D2E0;
+  --dark-text-tertiary: #8B9AAD;
+  
+  --dark-border-subtle: #2E4057;
+  --dark-border-focus: #4A90E2;
+  
+  --dark-shadow-subtle: rgba(0, 0, 0, 0.3);
+  --dark-shadow-elevated: rgba(0, 0, 0, 0.5);
+  --dark-glow: rgba(100, 181, 246, 0.2);
+  
+  /* Status Colors */
+  --success-light: #10B981;
+  --success-dark: #34D399;
+  --warning-light: #F59E0B;
+  --warning-dark: #FBBF24;
+  --error-light: #EF4444;
+  --error-dark: #F87171;
+  --info: #64B5F6;
+}
+
+/* Light Theme Application */
+.light {
+  --bg-primary: var(--light-bg-primary);
+  --bg-secondary: var(--light-bg-secondary);
+  --bg-tertiary: var(--light-bg-tertiary);
+  
+  --text-primary: var(--light-text-primary);
+  --text-secondary: var(--light-text-secondary);
+  --text-tertiary: var(--light-text-tertiary);
+  
+  --border-subtle: var(--light-border-subtle);
+  --border-focus: var(--light-border-focus);
+  
+  --shadow-subtle: var(--light-shadow-subtle);
+  --shadow-elevated: var(--light-shadow-elevated);
+  
+  --success: var(--success-light);
+  --warning: var(--warning-light);
+  --error: var(--error-light);
+}
+
+/* Dark Theme Application */
+.dark {
+  --bg-primary: var(--dark-bg-primary);
+  --bg-secondary: var(--dark-bg-secondary);
+  --bg-tertiary: var(--dark-bg-tertiary);
+  
+  --text-primary: var(--dark-text-primary);
+  --text-secondary: var(--dark-text-secondary);
+  --text-tertiary: var(--dark-text-tertiary);
+  
+  --border-subtle: var(--dark-border-subtle);
+  --border-focus: var(--dark-border-focus);
+  
+  --shadow-subtle: var(--dark-shadow-subtle);
+  --shadow-elevated: var(--dark-shadow-elevated);
+  
+  --success: var(--success-dark);
+  --warning: var(--warning-dark);
+  --error: var(--error-dark);
+}
+
+/* Brand Gradient Utilities */
+.brand-gradient-hero {
+  background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-royal) 50%, var(--brand-sky) 100%);
+}
+
+.brand-gradient-accent {
+  background: linear-gradient(to right, var(--brand-royal), var(--brand-sky));
+}
+
+.brand-gradient-dark-glow {
+  background: radial-gradient(circle at center, var(--dark-glow), transparent);
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: var(--brand-royal);
+  color: white;
+  transition: all 150ms ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-vibrant);
+}
+
+.btn-primary:active {
+  background-color: var(--brand-deep);
+  transition: all 100ms ease-out;
+}
+
+.btn-secondary {
+  background-color: var(--light-bg-tertiary);
+  color: var(--brand-navy);
+}
+
+.dark .btn-secondary {
+  background-color: var(--brand-navy);
+  color: var(--light-bg-tertiary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--light-border-subtle);
+}
+
+.dark .btn-secondary:hover {
+  background-color: #3D5270;
+}
+
+/* Card Styles */
+.brand-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 2px 8px var(--shadow-subtle);
+  transition: all 150ms ease-in-out;
+}
+
+.brand-card:hover {
+  box-shadow: 0 8px 24px var(--shadow-elevated);
+}
+
+.dark .brand-card {
+  box-shadow: 0 4px 12px var(--shadow-subtle);
+}
+
+.dark .brand-card:hover {
+  box-shadow: 0 8px 32px var(--shadow-elevated);
+}
+
+/* Glow Effects for Dark Theme */
+.dark .brand-glow {
+  box-shadow: 0 0 20px var(--dark-glow);
+}
+
+.dark .brand-glow-subtle {
+  box-shadow: 0 0 10px rgba(100, 181, 246, 0.1);
+}

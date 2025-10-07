@@ -5,6 +5,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 import AnimatedBackground from '@/components/AnimatedBackground';
+import { motion } from 'framer-motion';
+import '../styles/brand-colors.css';
 
 export default function Contacts() {
   const handleSubmit = (e) => {
@@ -33,37 +35,47 @@ export default function Contacts() {
 
   return (
     <AnimatedBackground variant="morphing">
-      <div className="min-h-screen bg-gradient-to-b from-blue-50/80 to-white/80 dark:from-gray-900/80 dark:to-gray-800/80 backdrop-blur-sm pt-24 pb-12 px-6">
+      <div className="min-h-screen bg-gradient-to-b from-[#F5F7FA]/80 to-white/80 dark:from-[#0F1419]/80 dark:to-[#1A1F2E]/80 backdrop-blur-sm pt-24 pb-12 px-6">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Get In <span className="text-blue-600 dark:text-blue-400">Touch</span>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <h1 className="text-5xl md:text-6xl font-bold text-[#1A1F2E] dark:text-[#F5F7FA] mb-6">
+            Get In <span className="text-[#4A90E2]">Touch</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Have a question or ready to start your project? We're here to help you every step of the way.
+          <p className="text-xl md:text-2xl text-[#4A5568] dark:text-[#C7D2E0] max-w-4xl mx-auto leading-relaxed">
+            Have a question or ready to start your project? We're here to help you every step of the way with expert guidance and support.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-6">
-            <Card className="bg-white dark:bg-gray-800">
-              <CardHeader>
-                <CardTitle className="text-2xl dark:text-white">Contact Information</CardTitle>
-                <CardDescription className="dark:text-gray-400">
-                  Reach out to us through any of these channels
-                </CardDescription>
-              </CardHeader>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Card className="bg-white/95 dark:bg-[#1A1F2E]/95 backdrop-blur-sm border-[#D1DDE8] dark:border-[#2E4057] shadow-xl">
+                <CardHeader>
+                  <CardTitle className="text-3xl font-bold text-[#1A1F2E] dark:text-[#F5F7FA]">Contact Information</CardTitle>
+                  <CardDescription className="text-lg text-[#4A5568] dark:text-[#C7D2E0]">
+                    Reach out to us through any of these channels
+                  </CardDescription>
+                </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#4A90E2] to-[#64B5F6] rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                    <Phone className="h-7 w-7 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Phone</h3>
-                    <p className="text-gray-600 dark:text-gray-300">+263 24 2701234</p>
-                    <p className="text-gray-600 dark:text-gray-300">+263 77 123 4567</p>
+                    <h3 className="font-bold text-lg text-[#1A1F2E] dark:text-[#F5F7FA] mb-2">Phone</h3>
+                    <p className="text-[#4A5568] dark:text-[#C7D2E0] text-lg">+263 24 2701234</p>
+                    <p className="text-[#4A5568] dark:text-[#C7D2E0] text-lg">+263 77 123 4567</p>
                   </div>
                 </div>
 
@@ -106,119 +118,163 @@ export default function Contacts() {
                 </div>
               </CardContent>
             </Card>
+            </motion.div>
 
             {/* Emergency Contact */}
-            <Card className="bg-blue-600 dark:bg-blue-900 text-white border-0">
-              <CardHeader>
-                <CardTitle className="text-xl">24/7 Emergency Support</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-blue-100 dark:text-blue-200 mb-3">
-                  For urgent maintenance or technical support, call our emergency hotline:
-                </p>
-                <p className="text-2xl font-bold">+263 71 234 5678</p>
-              </CardContent>
-            </Card>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Card className="bg-gradient-to-br from-[#4A90E2] to-[#1E88E5] text-white border-0 shadow-xl">
+                <CardHeader>
+                  <CardTitle className="text-2xl font-bold">24/7 Emergency Support</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-white/90 mb-4 text-lg">
+                    For urgent maintenance or technical support, call our emergency hotline:
+                  </p>
+                  <p className="text-3xl font-bold text-white">+263 71 234 5678</p>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
 
           {/* Contact Form */}
-          <Card className="bg-white dark:bg-gray-800">
-            <CardHeader>
-              <CardTitle className="text-2xl dark:text-white">Send Us a Message</CardTitle>
-              <CardDescription className="dark:text-gray-400">
-                Fill out the form below and we'll get back to you within 24 hours
-              </CardDescription>
-            </CardHeader>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <Card className="bg-white/95 dark:bg-[#1A1F2E]/95 backdrop-blur-sm border-[#D1DDE8] dark:border-[#2E4057] shadow-xl">
+              <CardHeader>
+                <CardTitle className="text-3xl font-bold text-[#1A1F2E] dark:text-[#F5F7FA]">Send Us a Message</CardTitle>
+                <CardDescription className="text-lg text-[#4A5568] dark:text-[#C7D2E0]">
+                  Fill out the form below and we'll get back to you within 24 hours
+                </CardDescription>
+              </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="firstName" className="dark:text-gray-200">First Name *</Label>
+                    <Label htmlFor="firstName" className="text-[#1A1F2E] dark:text-[#F5F7FA] font-medium">First Name *</Label>
                     <Input 
                       id="firstName" 
                       name="firstName"
                       placeholder="John" 
                       required 
-                      className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                      className="bg-white dark:bg-[#2E4057] text-[#1A1F2E] dark:text-[#F5F7FA] border-[#D1DDE8] dark:border-[#4A5568] focus:border-[#4A90E2] dark:focus:border-[#64B5F6]"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="lastName" className="dark:text-gray-200">Last Name *</Label>
+                    <Label htmlFor="lastName" className="text-[#1A1F2E] dark:text-[#F5F7FA] font-medium">Last Name *</Label>
                     <Input 
                       id="lastName" 
                       name="lastName"
                       placeholder="Doe" 
                       required 
-                      className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                      className="bg-white dark:bg-[#2E4057] text-[#1A1F2E] dark:text-[#F5F7FA] border-[#D1DDE8] dark:border-[#4A5568] focus:border-[#4A90E2] dark:focus:border-[#64B5F6]"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="dark:text-gray-200">Email *</Label>
+                  <Label htmlFor="email" className="text-[#1A1F2E] dark:text-[#F5F7FA] font-medium">Email *</Label>
                   <Input 
                     id="email" 
                     name="email"
                     type="email" 
                     placeholder="john.doe@example.com" 
                     required 
-                    className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                    className="bg-white dark:bg-[#2E4057] text-[#1A1F2E] dark:text-[#F5F7FA] border-[#D1DDE8] dark:border-[#4A5568] focus:border-[#4A90E2] dark:focus:border-[#64B5F6]"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="phone" className="dark:text-gray-200">Phone Number</Label>
+                  <Label htmlFor="phone" className="text-[#1A1F2E] dark:text-[#F5F7FA] font-medium">Phone Number</Label>
                   <Input 
                     id="phone" 
                     name="phone"
                     type="tel" 
                     placeholder="+263 77 123 4567" 
-                    className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                    className="bg-white dark:bg-[#2E4057] text-[#1A1F2E] dark:text-[#F5F7FA] border-[#D1DDE8] dark:border-[#4A5568] focus:border-[#4A90E2] dark:focus:border-[#64B5F6]"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="subject" className="dark:text-gray-200">Subject *</Label>
+                  <Label htmlFor="subject" className="text-[#1A1F2E] dark:text-[#F5F7FA] font-medium">Subject *</Label>
                   <Input 
                     id="subject" 
                     name="subject"
                     placeholder="How can we help you?" 
                     required 
-                    className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                    className="bg-white dark:bg-[#2E4057] text-[#1A1F2E] dark:text-[#F5F7FA] border-[#D1DDE8] dark:border-[#4A5568] focus:border-[#4A90E2] dark:focus:border-[#64B5F6]"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message" className="dark:text-gray-200">Message *</Label>
+                  <Label htmlFor="message" className="text-[#1A1F2E] dark:text-[#F5F7FA] font-medium">Message *</Label>
                   <Textarea 
                     id="message" 
                     name="message"
                     placeholder="Tell us more about your project or inquiry..." 
                     rows={5}
                     required 
-                    className="dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                    className="bg-white dark:bg-[#2E4057] text-[#1A1F2E] dark:text-[#F5F7FA] border-[#D1DDE8] dark:border-[#4A5568] focus:border-[#4A90E2] dark:focus:border-[#64B5F6] resize-none"
                   />
                 </div>
 
-                <Button 
+                <button 
                   type="submit" 
-                  size="lg" 
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-500 dark:hover:bg-blue-600 dark:text-white"
+                  className="!w-full !inline-flex !items-center !justify-center !gap-3 !bg-[#4A90E2] !text-[#FFFFFF] hover:!bg-[#1E88E5] hover:!text-[#FFFFFF] active:!bg-[#0D47A1] dark:!bg-[#4A90E2] dark:!text-[#FFFFFF] dark:hover:!bg-[#64B5F6] dark:hover:!text-[#FFFFFF] dark:active:!bg-[#90CAF9] dark:active:!text-[#1A1F2E] !px-6 !py-3 !text-base !font-semibold !shadow-xl hover:!shadow-2xl hover:!scale-105 !transition-all !duration-200 !rounded-lg !cursor-pointer !border-0 !outline-none"
+                  style={{
+                    width: '100%',
+                    backgroundColor: '#4A90E2',
+                    color: '#FFFFFF',
+                    border: 'none',
+                    padding: '12px 24px',
+                    fontSize: '16px',
+                    fontWeight: '600',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '12px',
+                    transition: 'all 0.2s ease',
+                    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = '#1E88E5';
+                    e.target.style.transform = 'scale(1.05)';
+                    e.target.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = '#4A90E2';
+                    e.target.style.transform = 'scale(1)';
+                    e.target.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
+                  }}
                 >
-                  <Send className="mr-2 h-5 w-5" />
+                  <Send className="mr-3 h-6 w-6" />
                   Send Message
-                </Button>
+                </button>
               </form>
             </CardContent>
           </Card>
+          </motion.div>
         </div>
 
         {/* Google Maps Section */}
-        <div className="mt-12">
-          <Card className="bg-white dark:bg-gray-800 overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-12"
+        >
+          <Card className="bg-white/95 dark:bg-[#1A1F2E]/95 backdrop-blur-sm border-[#D1DDE8] dark:border-[#2E4057] shadow-xl overflow-hidden">
             <CardHeader>
-              <CardTitle className="text-2xl dark:text-white">Find Us on the Map</CardTitle>
-              <CardDescription className="dark:text-gray-400">
+              <CardTitle className="text-3xl font-bold text-[#1A1F2E] dark:text-[#F5F7FA]">Find Us on the Map</CardTitle>
+              <CardDescription className="text-lg text-[#4A5568] dark:text-[#C7D2E0]">
                 Visit our office at 123 Samora Machel Avenue, Harare
               </CardDescription>
             </CardHeader>
@@ -238,7 +294,7 @@ export default function Contacts() {
               </div>
             </CardContent>
           </Card>
-        </div>
+        </motion.div>
       </div>
       </div>
     </AnimatedBackground>

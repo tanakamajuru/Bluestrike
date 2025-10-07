@@ -15,7 +15,7 @@ export default function BackgroundSlider({ images = [] }) {
 
   if (images.length === 0) {
     return (
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#2E4057]/80 via-[#4A90E2]/80 to-[#64B5F6]/80" />
     );
   }
 
@@ -33,7 +33,7 @@ export default function BackgroundSlider({ images = [] }) {
             alt={`Slide ${index + 1}`}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-purple-900/70" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#2E4057]/70 via-[#4A90E2]/70 to-[#64B5F6]/70" />
         </div>
       ))}
     </div>

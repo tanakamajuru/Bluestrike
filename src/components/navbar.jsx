@@ -8,6 +8,7 @@ import {
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from './ThemeToggle';
 import { useNavigation } from '../App';
+import '../styles/brand-colors.css';
 
 export default function Navbar() {
   const { currentPage, navigate } = useNavigation();
@@ -20,16 +21,24 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center p-6">
       <div className="flex items-center gap-4">
-        <NavigationMenu className="text-gray-900 dark:text-gray-100">
-          <NavigationMenuList className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full shadow-lg px-2">
+        {/* Logo */}
+        <img 
+          src="/src/assets/logo.jpg" 
+          alt="BlueStrike Logo" 
+          className="h-12 w-12 rounded-full cursor-pointer hover:scale-105 transition-transform duration-200 shadow-xl border-2 border-white/20 dark:border-[#4A90E2]/30"
+          onClick={() => navigate('home')}
+        />
+        
+        <NavigationMenu className="text-[#2E4057] dark:text-[#E8EEF4]">
+          <NavigationMenuList className="bg-[#E8EEF4] dark:bg-[#2E4057] backdrop-blur-sm rounded-full shadow-xl border border-[#D1DDE8] dark:border-[#4A5568] px-2">
             <NavigationMenuItem>
               <NavigationMenuLink 
                 href="/" 
                 onClick={(e) => handleNavigation(e, 'home')}
                 className={cn(
                   navigationMenuTriggerStyle(), 
-                  "bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer",
-                  currentPage === 'home' && "bg-gray-100 dark:bg-gray-700"
+                  "bg-transparent hover:bg-[#D1DDE8] hover:text-[#1A1F2E] dark:hover:bg-[#3D5270] dark:hover:text-[#F5F7FA] cursor-pointer text-[#2E4057] dark:text-[#E8EEF4] transition-all duration-200 font-medium",
+                  currentPage === 'home' && "border-b-2 border-[#4A90E2] dark:border-[#64B5F6] text-[#4A90E2] dark:text-[#64B5F6] font-semibold"
                 )}
               >
                 Home
@@ -41,8 +50,8 @@ export default function Navbar() {
                 onClick={(e) => handleNavigation(e, 'about')}
                 className={cn(
                   navigationMenuTriggerStyle(), 
-                  "bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer",
-                  currentPage === 'about' && "bg-gray-100 dark:bg-gray-700"
+                  "bg-transparent hover:bg-[#D1DDE8] hover:text-[#1A1F2E] dark:hover:bg-[#3D5270] dark:hover:text-[#F5F7FA] cursor-pointer text-[#2E4057] dark:text-[#E8EEF4] transition-all duration-200 font-medium",
+                  currentPage === 'about' && "border-b-2 border-[#4A90E2] dark:border-[#64B5F6] text-[#4A90E2] dark:text-[#64B5F6] font-semibold"
                 )}
               >
                 About Us
@@ -54,8 +63,8 @@ export default function Navbar() {
                 onClick={(e) => handleNavigation(e, 'portfolio')}
                 className={cn(
                   navigationMenuTriggerStyle(), 
-                  "bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer",
-                  currentPage === 'portfolio' && "bg-gray-100 dark:bg-gray-700"
+                  "bg-transparent hover:bg-[#D1DDE8] hover:text-[#1A1F2E] dark:hover:bg-[#3D5270] dark:hover:text-[#F5F7FA] cursor-pointer text-[#2E4057] dark:text-[#E8EEF4] transition-all duration-200 font-medium",
+                  currentPage === 'portfolio' && "border-b-2 border-[#4A90E2] dark:border-[#64B5F6] text-[#4A90E2] dark:text-[#64B5F6] font-semibold"
                 )}
               >
                 Portfolio
@@ -67,8 +76,8 @@ export default function Navbar() {
                 onClick={(e) => handleNavigation(e, 'contacts')}
                 className={cn(
                   navigationMenuTriggerStyle(), 
-                  "bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer",
-                  currentPage === 'contacts' && "bg-gray-100 dark:bg-gray-700"
+                  "bg-transparent hover:bg-[#D1DDE8] hover:text-[#1A1F2E] dark:hover:bg-[#3D5270] dark:hover:text-[#F5F7FA] cursor-pointer text-[#2E4057] dark:text-[#E8EEF4] transition-all duration-200 font-medium",
+                  currentPage === 'contacts' && "border-b-2 border-[#4A90E2] dark:border-[#64B5F6] text-[#4A90E2] dark:text-[#64B5F6] font-semibold"
                 )}
               >
                 Contacts
@@ -76,7 +85,7 @@ export default function Navbar() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full shadow-lg p-1">
+        <div className="bg-[#E8EEF4] dark:bg-[#2E4057] hover:bg-[#D1DDE8] dark:hover:bg-[#3D5270] backdrop-blur-sm rounded-full shadow-xl border border-[#D1DDE8] dark:border-[#4A5568] p-1 transition-all duration-200">
           <ThemeToggle />
         </div>
       </div>
